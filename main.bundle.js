@@ -28402,16 +28402,16 @@
 	  store.emit('change', grudges);
 	};
 
-	store.forgive = function () {
+	store.forgive = function (id) {
 	  grudges = grudges.map(function (grudge) {
-	    return Object.assign(grudge, { forgiven: "Forgiven? I guess..." });
+	    return Object.assign(grudge, { forgiven: grudge.id === id });
 	  });
 	  store.emit('change', grudges);
 	};
 
 	store.unforgive = function () {
 	  grudges = grudges.map(function (grudge) {
-	    return Object.assign(grudge, { forgiven: "Forgiven? NOPE" });
+	    return Object.assign(grudge, { forgiven: false });
 	  });
 	  store.emit('change', grudges);
 	};
@@ -28789,7 +28789,7 @@
 	    value: function createGrudge(e) {
 	      e.preventDefault();
 	      store.create(this.state);
-	      this.setState({ name: '', offense: '', forgiven: 'NOPE' });
+	      this.setState({ name: '', offense: '', forgiven: 'Forgiven? NOPE' });
 	    }
 	  }, {
 	    key: 'render',
@@ -28973,21 +28973,21 @@
 	    );
 	  }
 
-	  if (forgiven === "Forgiven? NOPE") {
-	    var forgiveButton = React.createElement(
-	      'button',
-	      { onClick: function onClick() {
-	          return store.forgive();
-	        } },
-	      'Forgive'
-	    );
-	  } else {
+	  if (forgiven === true) {
 	    var forgiveButton = React.createElement(
 	      'button',
 	      { onClick: function onClick() {
 	          return store.unforgive();
 	        } },
 	      'Unforgive'
+	    );
+	  } else {
+	    var forgiveButton = React.createElement(
+	      'button',
+	      { onClick: function onClick() {
+	          return store.forgive(id);
+	        } },
+	      'Forgive'
 	    );
 	  }
 
@@ -29007,7 +29007,7 @@
 	    React.createElement(
 	      'div',
 	      { className: 'GrudgesListItem-forgiven' },
-	      forgiven
+	      forgiven ? 'Forgiven? I guess so...' : 'Forgiven? NOPE'
 	    ),
 	    React.createElement(
 	      'div',
