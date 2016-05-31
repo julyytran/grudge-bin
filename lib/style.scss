@@ -17,7 +17,6 @@ html {
 html, body {
   height: 100%;
   width: 100%;
-  overflow: hidden;
 }
 
 *, *:before, *:after {
@@ -89,6 +88,14 @@ header {
   text-align: center;
 }
 
+.GrudgeCounts {
+  margin-bottom: 1rem;
+
+  font-size: 2em;
+  font-weight: 300;
+  text-align: center;
+}
+
 .GrudgeBin {
   display: flex;
   height: 100vh;
@@ -128,7 +135,9 @@ header {
 .GrudgesList {
   margin-top: 2em;
   padding-top: 1em;
-  border-top: 1px solid darken($sidebar-color, 10);
+  border: 5px solid darken($sidebar-color, 10);
+  overflow-y: auto;
+  height: 425px;
 }
 
 .GrudgesListItem {
