@@ -28770,7 +28770,7 @@
 	    _this.state = {
 	      name: '',
 	      offense: '',
-	      forgiven: 'Forgiven? NOPE'
+	      forgiven: false
 	    };
 	    return _this;
 	  }
@@ -28789,7 +28789,7 @@
 	    value: function createGrudge(e) {
 	      e.preventDefault();
 	      store.create(this.state);
-	      this.setState({ name: '', offense: '', forgiven: 'Forgiven? NOPE' });
+	      this.setState({ name: '', offense: '', forgiven: false });
 	    }
 	  }, {
 	    key: 'render',
