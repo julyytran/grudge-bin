@@ -28404,13 +28404,19 @@
 
 	store.forgive = function (id) {
 	  grudges = grudges.map(function (grudge) {
-	    return Object.assign(grudge, { forgiven: grudge.id === id });
+	    if (grudge.id !== id) {
+	      return grudge;
+	    }
+	    return Object.assign(grudge, { forgiven: true });
 	  });
 	  store.emit('change', grudges);
 	};
 
-	store.unforgive = function () {
+	store.unforgive = function (id) {
 	  grudges = grudges.map(function (grudge) {
+	    if (grudge.id !== id) {
+	      return grudge;
+	    }
 	    return Object.assign(grudge, { forgiven: false });
 	  });
 	  store.emit('change', grudges);
@@ -28901,7 +28907,7 @@
 	  var forgivenGrudges = [];
 
 	  for (var i = 0; i < grudges.length; i++) {
-	    if (grudges[i].forgiven === "Forgiven? I guess...") {
+	    if (grudges[i].forgiven === true) {
 	      forgivenGrudges.push(grudges[i]);
 	    }
 	  }
@@ -28959,7 +28965,7 @@
 	    var selectButton = React.createElement(
 	      'button',
 	      { onClick: function onClick() {
-	          return store.deselect(id);
+	          return store.deselect();
 	        } },
 	      'Deselect'
 	    );
@@ -28977,7 +28983,7 @@
 	    var forgiveButton = React.createElement(
 	      'button',
 	      { onClick: function onClick() {
-	          return store.unforgive();
+	          return store.unforgive(id);
 	        } },
 	      'Unforgive'
 	    );
