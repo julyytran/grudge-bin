@@ -1,7 +1,7 @@
 {
-  "name": "react-starter-kit",
+  "name": "grudge-bin",
   "version": "1.0.0",
-  "description": "A good enough starter kit for a React project, I guess.",
+  "description": "CRU functionality with React",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/turingschool-examples/react-starter-kit.git"
+    "url": "git@github.com:julyytran/grudge-bin.git"
   },
-  "author": "Steve Kinney",
+  "author": "July Tran",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/turingschool-examples/react-starter-kit/issues"
+    "url": "https://github.com/julyytran/grudge-bin"
   },
-  "homepage": "https://github.com/turingschool-examples/react-starter-kit",
+  "homepage": "https://github.com/julyytran/grudge-bin",
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-core": "^6.7.4",
