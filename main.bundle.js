@@ -28881,7 +28881,7 @@
 	    }),
 	    React.createElement('textarea', { className: 'ActiveGrudge-forgiven',
 	      name: 'forgiven',
-	      value: grudge.forgiven,
+	      value: grudge.forgiven ? 'Forgiven? I guess so...' : 'Forgiven? NOPE',
 	      onChange: updateGrudge
 	    })
 	  );
