@@ -1,4 +1,6 @@
-# React Starter Kit
+# Grudge Bin
+
+CRUD in React for a place to hold all your grudges.
 
 To install the dependencies:
 
